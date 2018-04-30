@@ -1,0 +1,277 @@
+\hypertarget{routing__table_8h}{}\section{routing\+\_\+table.\+h File Reference}
+\label{routing__table_8h}\index{routing\+\_\+table.\+h@{routing\+\_\+table.\+h}}
+{\ttfamily \#include \char`\"{}contiki.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}core/net/linkaddr.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}stdbool.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}lib/list.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}lib/memb.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}net/rime/rime.\+h\char`\"{}}\\*
+{\ttfamily \#include $<$stdio.\+h$>$}\\*
+{\ttfamily \#include $<$string.\+h$>$}\\*
+{\ttfamily \#include \char`\"{}project-\/conf.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}unicast\+\_\+custom.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}broadcast\+\_\+custom.\+h\char`\"{}}\\*
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structneighbors}{neighbors}
+\item 
+struct \hyperlink{structnodes}{nodes}
+\end{DoxyCompactItemize}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{routing__table_8h_a2b1d39159e4114f433745f15a201c93c}{M\+A\+X\+\_\+\+N\+E\+I\+G\+H\+B\+O\+RS}~10
+\item 
+\#define \hyperlink{routing__table_8h_a144c6d9759dad2afe4c5f76ee747f0c7}{T\+I\+M\+E\+\_\+\+T\+O\+\_\+\+L\+I\+VE}~20
+\item 
+\#define \hyperlink{routing__table_8h_adcc8237b340ce952fab74b623b57d006}{I\+N\+F\+I\+N\+I\+T\+E\+\_\+\+H\+O\+P\+\_\+\+C\+O\+U\+NT}~0x1F
+\item 
+\#define \hyperlink{routing__table_8h_a90555a851d1f59a001739be335bd89cb}{R\+O\+U\+T\+E\+\_\+\+S\+H\+A\+R\+E\+\_\+\+I\+N\+T\+E\+R\+V\+AL}~(1)
+\item 
+\#define \hyperlink{routing__table_8h_ab4b5df0b029c0fe7c0faffc5649b99a1}{A\+S\+S\+E\+T\+\_\+\+S\+H\+A\+R\+E\+\_\+\+I\+N\+T\+E\+R\+V\+AL}~(2)
+\item 
+\#define \hyperlink{routing__table_8h_a7f00b054d13202af6dd7f0a11fc2be1d}{Q\+T\+\_\+\+R\+O\+U\+T\+E\+\_\+\+S\+H\+A\+R\+I\+N\+G\+\_\+\+I\+N\+T\+E\+R\+V\+AL}~(10)
+\item 
+\#define \hyperlink{routing__table_8h_ae72b469758fa8027cc80403d6df5e562}{C\+H\+A\+N\+N\+E\+L\+\_\+\+U\+S\+ED}~13
+\item 
+\#define \hyperlink{routing__table_8h_a8bc4773990d12a21438d91a86890b0db}{T\+X\+\_\+\+P\+O\+W\+ER}~-\/7
+\item 
+\#define \hyperlink{routing__table_8h_ad72dbcf6d0153db1b8d8a58001feed83}{D\+E\+B\+UG}~1
+\end{DoxyCompactItemize}
+\subsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \hyperlink{routing__table_8h_a929340911ce2051c285f11b8472f8af2}{P\+A\+C\+K\+E\+T\+\_\+\+T\+Y\+PE} \{ \hyperlink{routing__table_8h_a929340911ce2051c285f11b8472f8af2a78386e426adecb3fd26350119a3cb7c2}{B\+R\+O\+A\+D\+C\+A\+ST}, 
+\hyperlink{routing__table_8h_a929340911ce2051c285f11b8472f8af2a1d351ec628ce5fe3cb21d50632ac17bd}{U\+N\+I\+C\+A\+ST}, 
+\hyperlink{routing__table_8h_a929340911ce2051c285f11b8472f8af2a01e659acc1e0fecf53c31bb2e4360d4d}{A\+S\+S\+E\+T\+\_\+\+T\+R\+A\+C\+K\+I\+NG}, 
+\hyperlink{routing__table_8h_a929340911ce2051c285f11b8472f8af2a2faff1748b988a3e0b551d2df6fb295c}{N\+E\+T\+W\+O\+R\+K\+\_\+\+S\+T\+AT}
+ \}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{structnodes}{nodes} $\ast$ \hyperlink{routing__table_8h_a087940b84c41da9de20e561a7479880f}{get\+\_\+nearest\+\_\+neighbor} ()
+\item 
+void \hyperlink{routing__table_8h_ac7581d87be7686a59336e372238a91d2}{init\+\_\+routing\+\_\+table} ()
+\item 
+bool \hyperlink{routing__table_8h_a15f89def476778f3de7cbde4b31298cb}{get\+\_\+neighbors} (linkaddr\+\_\+t addr)
+\item 
+bool \hyperlink{routing__table_8h_ade054776c0fe601c327049ae3c4244a5}{add\+\_\+routing\+\_\+entry} (const linkaddr\+\_\+t $\ast$address, uint8\+\_\+t cost)
+\item 
+void \hyperlink{routing__table_8h_adea274117dc2914712b2c857902f1d95}{print\+\_\+routing\+\_\+table} ()
+\item 
+void \hyperlink{routing__table_8h_ab16f3f594494601b35f805a20fbdf7fc}{remove\+\_\+nbr} (void $\ast$n)
+\item 
+void \hyperlink{routing__table_8h_a1aef3383e57265b170ddfa3d37733006}{share\+\_\+routing\+\_\+table} ()
+\item 
+bool \hyperlink{routing__table_8h_a664041fb6457b05951388d9b3e8e2404}{qt\+\_\+route\+\_\+sharing\+\_\+process} (void)
+\item 
+void \hyperlink{routing__table_8h_a20ca2051b7a49bbb63db9157f3374ddd}{check\+\_\+gateway} ()
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+const linkaddr\+\_\+t \hyperlink{routing__table_8h_a4efe83a17bae46285cb406d55a61da0a}{gateway\+\_\+node}
+\item 
+bool \hyperlink{routing__table_8h_a5a2a5b38778274c2c9c09277cf17fe06}{i\+\_\+am\+\_\+gateway}
+\item 
+bool \hyperlink{routing__table_8h_ae6eb8faf3a079ff3abbad3597098c59f}{g\+Broadcast\+\_\+ended}
+\item 
+bool \hyperlink{routing__table_8h_a7976f264094b388d1204d831c5c3ceb9}{g\+List\+Empty}
+\item 
+int \hyperlink{routing__table_8h_af6011e98f1c246278dbd45a301a2b8bc}{g\+Battery\+Voltage}
+\item 
+int \hyperlink{routing__table_8h_a9b908f6ebb22df37e5c1758276e428a9}{g\+Battery\+Voltage\+\_\+emulated}
+\item 
+bool \hyperlink{routing__table_8h_a3c855edcbe1c99ccba335079058bc515}{is\+\_\+gateway\+\_\+found}
+\item 
+\hyperlink{structnodes}{nodes} \hyperlink{routing__table_8h_a8e3434535bb688894247ea59c081d87e}{nearest\+\_\+neighbor}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+File defines the interfaces for handling the routing in the application.
+
+\begin{DoxyAuthor}{Authors}
+Abhishek Sunkum(\href{mailto:ga83jok@mytum.de}{\tt ga83jok@mytum.\+de}) Pramod Tikare(\href{mailto:ga83baw@mytum.de}{\tt ga83baw@mytum.\+de}) Yadhunandana (\href{mailto:ga83jeb@mytum.de}{\tt ga83jeb@mytum.\+de}) 
+\end{DoxyAuthor}
+
+
+\subsection{Macro Definition Documentation}
+\index{routing\+\_\+table.\+h@{routing\+\_\+table.\+h}!A\+S\+S\+E\+T\+\_\+\+S\+H\+A\+R\+E\+\_\+\+I\+N\+T\+E\+R\+V\+AL@{A\+S\+S\+E\+T\+\_\+\+S\+H\+A\+R\+E\+\_\+\+I\+N\+T\+E\+R\+V\+AL}}
+\index{A\+S\+S\+E\+T\+\_\+\+S\+H\+A\+R\+E\+\_\+\+I\+N\+T\+E\+R\+V\+AL@{A\+S\+S\+E\+T\+\_\+\+S\+H\+A\+R\+E\+\_\+\+I\+N\+T\+E\+R\+V\+AL}!routing\+\_\+table.\+h@{routing\+\_\+table.\+h}}
+\subsubsection[{\texorpdfstring{A\+S\+S\+E\+T\+\_\+\+S\+H\+A\+R\+E\+\_\+\+I\+N\+T\+E\+R\+V\+AL}{ASSET_SHARE_INTERVAL}}]{\setlength{\rightskip}{0pt plus 5cm}\#define A\+S\+S\+E\+T\+\_\+\+S\+H\+A\+R\+E\+\_\+\+I\+N\+T\+E\+R\+V\+AL~(2)}\hypertarget{routing__table_8h_ab4b5df0b029c0fe7c0faffc5649b99a1}{}\label{routing__table_8h_ab4b5df0b029c0fe7c0faffc5649b99a1}
+For every A\+S\+S\+E\+T\+\_\+\+S\+H\+A\+R\+E\+\_\+\+I\+N\+T\+E\+R\+V\+AL asset mote broadcasts. \index{routing\+\_\+table.\+h@{routing\+\_\+table.\+h}!C\+H\+A\+N\+N\+E\+L\+\_\+\+U\+S\+ED@{C\+H\+A\+N\+N\+E\+L\+\_\+\+U\+S\+ED}}
+\index{C\+H\+A\+N\+N\+E\+L\+\_\+\+U\+S\+ED@{C\+H\+A\+N\+N\+E\+L\+\_\+\+U\+S\+ED}!routing\+\_\+table.\+h@{routing\+\_\+table.\+h}}
+\subsubsection[{\texorpdfstring{C\+H\+A\+N\+N\+E\+L\+\_\+\+U\+S\+ED}{CHANNEL_USED}}]{\setlength{\rightskip}{0pt plus 5cm}\#define C\+H\+A\+N\+N\+E\+L\+\_\+\+U\+S\+ED~13}\hypertarget{routing__table_8h_ae72b469758fa8027cc80403d6df5e562}{}\label{routing__table_8h_ae72b469758fa8027cc80403d6df5e562}
+C\+H\+A\+N\+N\+E\+L\+\_\+\+U\+S\+ED channel number used for the project. \index{routing\+\_\+table.\+h@{routing\+\_\+table.\+h}!D\+E\+B\+UG@{D\+E\+B\+UG}}
+\index{D\+E\+B\+UG@{D\+E\+B\+UG}!routing\+\_\+table.\+h@{routing\+\_\+table.\+h}}
+\subsubsection[{\texorpdfstring{D\+E\+B\+UG}{DEBUG}}]{\setlength{\rightskip}{0pt plus 5cm}\#define D\+E\+B\+UG~1}\hypertarget{routing__table_8h_ad72dbcf6d0153db1b8d8a58001feed83}{}\label{routing__table_8h_ad72dbcf6d0153db1b8d8a58001feed83}
+flag to control the debug levels in the project. Make it zero to disable all the logs. \index{routing\+\_\+table.\+h@{routing\+\_\+table.\+h}!I\+N\+F\+I\+N\+I\+T\+E\+\_\+\+H\+O\+P\+\_\+\+C\+O\+U\+NT@{I\+N\+F\+I\+N\+I\+T\+E\+\_\+\+H\+O\+P\+\_\+\+C\+O\+U\+NT}}
+\index{I\+N\+F\+I\+N\+I\+T\+E\+\_\+\+H\+O\+P\+\_\+\+C\+O\+U\+NT@{I\+N\+F\+I\+N\+I\+T\+E\+\_\+\+H\+O\+P\+\_\+\+C\+O\+U\+NT}!routing\+\_\+table.\+h@{routing\+\_\+table.\+h}}
+\subsubsection[{\texorpdfstring{I\+N\+F\+I\+N\+I\+T\+E\+\_\+\+H\+O\+P\+\_\+\+C\+O\+U\+NT}{INFINITE_HOP_COUNT}}]{\setlength{\rightskip}{0pt plus 5cm}\#define I\+N\+F\+I\+N\+I\+T\+E\+\_\+\+H\+O\+P\+\_\+\+C\+O\+U\+NT~0x1F}\hypertarget{routing__table_8h_adcc8237b340ce952fab74b623b57d006}{}\label{routing__table_8h_adcc8237b340ce952fab74b623b57d006}
+Hop count which si considered as infinity in Bellman fords algorithm. \index{routing\+\_\+table.\+h@{routing\+\_\+table.\+h}!M\+A\+X\+\_\+\+N\+E\+I\+G\+H\+B\+O\+RS@{M\+A\+X\+\_\+\+N\+E\+I\+G\+H\+B\+O\+RS}}
+\index{M\+A\+X\+\_\+\+N\+E\+I\+G\+H\+B\+O\+RS@{M\+A\+X\+\_\+\+N\+E\+I\+G\+H\+B\+O\+RS}!routing\+\_\+table.\+h@{routing\+\_\+table.\+h}}
+\subsubsection[{\texorpdfstring{M\+A\+X\+\_\+\+N\+E\+I\+G\+H\+B\+O\+RS}{MAX_NEIGHBORS}}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\+A\+X\+\_\+\+N\+E\+I\+G\+H\+B\+O\+RS~10}\hypertarget{routing__table_8h_a2b1d39159e4114f433745f15a201c93c}{}\label{routing__table_8h_a2b1d39159e4114f433745f15a201c93c}
+defines the maximum number of neighbors allowed per node. \index{routing\+\_\+table.\+h@{routing\+\_\+table.\+h}!Q\+T\+\_\+\+R\+O\+U\+T\+E\+\_\+\+S\+H\+A\+R\+I\+N\+G\+\_\+\+I\+N\+T\+E\+R\+V\+AL@{Q\+T\+\_\+\+R\+O\+U\+T\+E\+\_\+\+S\+H\+A\+R\+I\+N\+G\+\_\+\+I\+N\+T\+E\+R\+V\+AL}}
+\index{Q\+T\+\_\+\+R\+O\+U\+T\+E\+\_\+\+S\+H\+A\+R\+I\+N\+G\+\_\+\+I\+N\+T\+E\+R\+V\+AL@{Q\+T\+\_\+\+R\+O\+U\+T\+E\+\_\+\+S\+H\+A\+R\+I\+N\+G\+\_\+\+I\+N\+T\+E\+R\+V\+AL}!routing\+\_\+table.\+h@{routing\+\_\+table.\+h}}
+\subsubsection[{\texorpdfstring{Q\+T\+\_\+\+R\+O\+U\+T\+E\+\_\+\+S\+H\+A\+R\+I\+N\+G\+\_\+\+I\+N\+T\+E\+R\+V\+AL}{QT_ROUTE_SHARING_INTERVAL}}]{\setlength{\rightskip}{0pt plus 5cm}\#define Q\+T\+\_\+\+R\+O\+U\+T\+E\+\_\+\+S\+H\+A\+R\+I\+N\+G\+\_\+\+I\+N\+T\+E\+R\+V\+AL~(10)}\hypertarget{routing__table_8h_a7f00b054d13202af6dd7f0a11fc2be1d}{}\label{routing__table_8h_a7f00b054d13202af6dd7f0a11fc2be1d}
+For every Q\+T\+\_\+\+R\+O\+U\+T\+E\+\_\+\+S\+H\+A\+R\+I\+N\+G\+\_\+\+I\+N\+T\+E\+R\+V\+AL routing table is shared QT G\+UI. \index{routing\+\_\+table.\+h@{routing\+\_\+table.\+h}!R\+O\+U\+T\+E\+\_\+\+S\+H\+A\+R\+E\+\_\+\+I\+N\+T\+E\+R\+V\+AL@{R\+O\+U\+T\+E\+\_\+\+S\+H\+A\+R\+E\+\_\+\+I\+N\+T\+E\+R\+V\+AL}}
+\index{R\+O\+U\+T\+E\+\_\+\+S\+H\+A\+R\+E\+\_\+\+I\+N\+T\+E\+R\+V\+AL@{R\+O\+U\+T\+E\+\_\+\+S\+H\+A\+R\+E\+\_\+\+I\+N\+T\+E\+R\+V\+AL}!routing\+\_\+table.\+h@{routing\+\_\+table.\+h}}
+\subsubsection[{\texorpdfstring{R\+O\+U\+T\+E\+\_\+\+S\+H\+A\+R\+E\+\_\+\+I\+N\+T\+E\+R\+V\+AL}{ROUTE_SHARE_INTERVAL}}]{\setlength{\rightskip}{0pt plus 5cm}\#define R\+O\+U\+T\+E\+\_\+\+S\+H\+A\+R\+E\+\_\+\+I\+N\+T\+E\+R\+V\+AL~(1)}\hypertarget{routing__table_8h_a90555a851d1f59a001739be335bd89cb}{}\label{routing__table_8h_a90555a851d1f59a001739be335bd89cb}
+For every R\+O\+U\+T\+E\+\_\+\+S\+H\+A\+R\+E\+\_\+\+I\+N\+T\+E\+R\+V\+AL nearest route to neighbor is shared to neighbors. \index{routing\+\_\+table.\+h@{routing\+\_\+table.\+h}!T\+I\+M\+E\+\_\+\+T\+O\+\_\+\+L\+I\+VE@{T\+I\+M\+E\+\_\+\+T\+O\+\_\+\+L\+I\+VE}}
+\index{T\+I\+M\+E\+\_\+\+T\+O\+\_\+\+L\+I\+VE@{T\+I\+M\+E\+\_\+\+T\+O\+\_\+\+L\+I\+VE}!routing\+\_\+table.\+h@{routing\+\_\+table.\+h}}
+\subsubsection[{\texorpdfstring{T\+I\+M\+E\+\_\+\+T\+O\+\_\+\+L\+I\+VE}{TIME_TO_LIVE}}]{\setlength{\rightskip}{0pt plus 5cm}\#define T\+I\+M\+E\+\_\+\+T\+O\+\_\+\+L\+I\+VE~20}\hypertarget{routing__table_8h_a144c6d9759dad2afe4c5f76ee747f0c7}{}\label{routing__table_8h_a144c6d9759dad2afe4c5f76ee747f0c7}
+Time after which neighbor should be removed from routing table. If no packet is received from that neighbor \index{routing\+\_\+table.\+h@{routing\+\_\+table.\+h}!T\+X\+\_\+\+P\+O\+W\+ER@{T\+X\+\_\+\+P\+O\+W\+ER}}
+\index{T\+X\+\_\+\+P\+O\+W\+ER@{T\+X\+\_\+\+P\+O\+W\+ER}!routing\+\_\+table.\+h@{routing\+\_\+table.\+h}}
+\subsubsection[{\texorpdfstring{T\+X\+\_\+\+P\+O\+W\+ER}{TX_POWER}}]{\setlength{\rightskip}{0pt plus 5cm}\#define T\+X\+\_\+\+P\+O\+W\+ER~-\/7}\hypertarget{routing__table_8h_a8bc4773990d12a21438d91a86890b0db}{}\label{routing__table_8h_a8bc4773990d12a21438d91a86890b0db}
+T\+X\+\_\+\+P\+O\+W\+ER used for communication. 
+
+\subsection{Enumeration Type Documentation}
+\index{routing\+\_\+table.\+h@{routing\+\_\+table.\+h}!P\+A\+C\+K\+E\+T\+\_\+\+T\+Y\+PE@{P\+A\+C\+K\+E\+T\+\_\+\+T\+Y\+PE}}
+\index{P\+A\+C\+K\+E\+T\+\_\+\+T\+Y\+PE@{P\+A\+C\+K\+E\+T\+\_\+\+T\+Y\+PE}!routing\+\_\+table.\+h@{routing\+\_\+table.\+h}}
+\subsubsection[{\texorpdfstring{P\+A\+C\+K\+E\+T\+\_\+\+T\+Y\+PE}{PACKET_TYPE}}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf P\+A\+C\+K\+E\+T\+\_\+\+T\+Y\+PE}}\hypertarget{routing__table_8h_a929340911ce2051c285f11b8472f8af2}{}\label{routing__table_8h_a929340911ce2051c285f11b8472f8af2}
+\begin{Desc}
+\item[Enumerator]\par
+\begin{description}
+\index{B\+R\+O\+A\+D\+C\+A\+ST@{B\+R\+O\+A\+D\+C\+A\+ST}!routing\+\_\+table.\+h@{routing\+\_\+table.\+h}}\index{routing\+\_\+table.\+h@{routing\+\_\+table.\+h}!B\+R\+O\+A\+D\+C\+A\+ST@{B\+R\+O\+A\+D\+C\+A\+ST}}\item[{\em 
+B\+R\+O\+A\+D\+C\+A\+ST\hypertarget{routing__table_8h_a929340911ce2051c285f11b8472f8af2a78386e426adecb3fd26350119a3cb7c2}{}\label{routing__table_8h_a929340911ce2051c285f11b8472f8af2a78386e426adecb3fd26350119a3cb7c2}
+}]\index{U\+N\+I\+C\+A\+ST@{U\+N\+I\+C\+A\+ST}!routing\+\_\+table.\+h@{routing\+\_\+table.\+h}}\index{routing\+\_\+table.\+h@{routing\+\_\+table.\+h}!U\+N\+I\+C\+A\+ST@{U\+N\+I\+C\+A\+ST}}\item[{\em 
+U\+N\+I\+C\+A\+ST\hypertarget{routing__table_8h_a929340911ce2051c285f11b8472f8af2a1d351ec628ce5fe3cb21d50632ac17bd}{}\label{routing__table_8h_a929340911ce2051c285f11b8472f8af2a1d351ec628ce5fe3cb21d50632ac17bd}
+}]\index{A\+S\+S\+E\+T\+\_\+\+T\+R\+A\+C\+K\+I\+NG@{A\+S\+S\+E\+T\+\_\+\+T\+R\+A\+C\+K\+I\+NG}!routing\+\_\+table.\+h@{routing\+\_\+table.\+h}}\index{routing\+\_\+table.\+h@{routing\+\_\+table.\+h}!A\+S\+S\+E\+T\+\_\+\+T\+R\+A\+C\+K\+I\+NG@{A\+S\+S\+E\+T\+\_\+\+T\+R\+A\+C\+K\+I\+NG}}\item[{\em 
+A\+S\+S\+E\+T\+\_\+\+T\+R\+A\+C\+K\+I\+NG\hypertarget{routing__table_8h_a929340911ce2051c285f11b8472f8af2a01e659acc1e0fecf53c31bb2e4360d4d}{}\label{routing__table_8h_a929340911ce2051c285f11b8472f8af2a01e659acc1e0fecf53c31bb2e4360d4d}
+}]\index{N\+E\+T\+W\+O\+R\+K\+\_\+\+S\+T\+AT@{N\+E\+T\+W\+O\+R\+K\+\_\+\+S\+T\+AT}!routing\+\_\+table.\+h@{routing\+\_\+table.\+h}}\index{routing\+\_\+table.\+h@{routing\+\_\+table.\+h}!N\+E\+T\+W\+O\+R\+K\+\_\+\+S\+T\+AT@{N\+E\+T\+W\+O\+R\+K\+\_\+\+S\+T\+AT}}\item[{\em 
+N\+E\+T\+W\+O\+R\+K\+\_\+\+S\+T\+AT\hypertarget{routing__table_8h_a929340911ce2051c285f11b8472f8af2a2faff1748b988a3e0b551d2df6fb295c}{}\label{routing__table_8h_a929340911ce2051c285f11b8472f8af2a2faff1748b988a3e0b551d2df6fb295c}
+}]\end{description}
+\end{Desc}
+
+
+\subsection{Function Documentation}
+\index{routing\+\_\+table.\+h@{routing\+\_\+table.\+h}!add\+\_\+routing\+\_\+entry@{add\+\_\+routing\+\_\+entry}}
+\index{add\+\_\+routing\+\_\+entry@{add\+\_\+routing\+\_\+entry}!routing\+\_\+table.\+h@{routing\+\_\+table.\+h}}
+\subsubsection[{\texorpdfstring{add\+\_\+routing\+\_\+entry(const linkaddr\+\_\+t $\ast$address, uint8\+\_\+t cost)}{add_routing_entry(const linkaddr_t *address, uint8_t cost)}}]{\setlength{\rightskip}{0pt plus 5cm}bool add\+\_\+routing\+\_\+entry (
+\begin{DoxyParamCaption}
+\item[{const linkaddr\+\_\+t $\ast$}]{address, }
+\item[{uint8\+\_\+t}]{cost}
+\end{DoxyParamCaption}
+)}\hypertarget{routing__table_8h_ade054776c0fe601c327049ae3c4244a5}{}\label{routing__table_8h_ade054776c0fe601c327049ae3c4244a5}
+
+\begin{DoxyParams}{Parameters}
+{\em address} & address of the neighbor \\
+\hline
+{\em cost} & cost to the neighbor. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+whether the entry is added to the table or not.
+\end{DoxyReturn}
+This function is responsible for adding the neighbor entries to the routing table. contains the logic to determine whether entry is duplicate or not. initializes the time to live timer/reinitializes if it already exists. \index{routing\+\_\+table.\+h@{routing\+\_\+table.\+h}!check\+\_\+gateway@{check\+\_\+gateway}}
+\index{check\+\_\+gateway@{check\+\_\+gateway}!routing\+\_\+table.\+h@{routing\+\_\+table.\+h}}
+\subsubsection[{\texorpdfstring{check\+\_\+gateway()}{check_gateway()}}]{\setlength{\rightskip}{0pt plus 5cm}void check\+\_\+gateway (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{routing__table_8h_a20ca2051b7a49bbb63db9157f3374ddd}{}\label{routing__table_8h_a20ca2051b7a49bbb63db9157f3374ddd}
+Checks whether the packet received is, from gateway or not. \index{routing\+\_\+table.\+h@{routing\+\_\+table.\+h}!get\+\_\+nearest\+\_\+neighbor@{get\+\_\+nearest\+\_\+neighbor}}
+\index{get\+\_\+nearest\+\_\+neighbor@{get\+\_\+nearest\+\_\+neighbor}!routing\+\_\+table.\+h@{routing\+\_\+table.\+h}}
+\subsubsection[{\texorpdfstring{get\+\_\+nearest\+\_\+neighbor()}{get_nearest_neighbor()}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf nodes}$\ast$ get\+\_\+nearest\+\_\+neighbor (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{routing__table_8h_a087940b84c41da9de20e561a7479880f}{}\label{routing__table_8h_a087940b84c41da9de20e561a7479880f}
+unused function \begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\index{routing\+\_\+table.\+h@{routing\+\_\+table.\+h}!get\+\_\+neighbors@{get\+\_\+neighbors}}
+\index{get\+\_\+neighbors@{get\+\_\+neighbors}!routing\+\_\+table.\+h@{routing\+\_\+table.\+h}}
+\subsubsection[{\texorpdfstring{get\+\_\+neighbors(linkaddr\+\_\+t addr)}{get_neighbors(linkaddr_t addr)}}]{\setlength{\rightskip}{0pt plus 5cm}bool get\+\_\+neighbors (
+\begin{DoxyParamCaption}
+\item[{linkaddr\+\_\+t}]{addr}
+\end{DoxyParamCaption}
+)}\hypertarget{routing__table_8h_a15f89def476778f3de7cbde4b31298cb}{}\label{routing__table_8h_a15f89def476778f3de7cbde4b31298cb}
+Unused function. 
+\begin{DoxyParams}{Parameters}
+{\em addr} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\index{routing\+\_\+table.\+h@{routing\+\_\+table.\+h}!init\+\_\+routing\+\_\+table@{init\+\_\+routing\+\_\+table}}
+\index{init\+\_\+routing\+\_\+table@{init\+\_\+routing\+\_\+table}!routing\+\_\+table.\+h@{routing\+\_\+table.\+h}}
+\subsubsection[{\texorpdfstring{init\+\_\+routing\+\_\+table()}{init_routing_table()}}]{\setlength{\rightskip}{0pt plus 5cm}void init\+\_\+routing\+\_\+table (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{routing__table_8h_ac7581d87be7686a59336e372238a91d2}{}\label{routing__table_8h_ac7581d87be7686a59336e372238a91d2}
+This is dummy function as of now If necessary some logic can be added here, just after allocating the routing table. \index{routing\+\_\+table.\+h@{routing\+\_\+table.\+h}!print\+\_\+routing\+\_\+table@{print\+\_\+routing\+\_\+table}}
+\index{print\+\_\+routing\+\_\+table@{print\+\_\+routing\+\_\+table}!routing\+\_\+table.\+h@{routing\+\_\+table.\+h}}
+\subsubsection[{\texorpdfstring{print\+\_\+routing\+\_\+table()}{print_routing_table()}}]{\setlength{\rightskip}{0pt plus 5cm}void print\+\_\+routing\+\_\+table (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{routing__table_8h_adea274117dc2914712b2c857902f1d95}{}\label{routing__table_8h_adea274117dc2914712b2c857902f1d95}
+This function is used only for debugging purpose. prints the current routing table of the node. \index{routing\+\_\+table.\+h@{routing\+\_\+table.\+h}!qt\+\_\+route\+\_\+sharing\+\_\+process@{qt\+\_\+route\+\_\+sharing\+\_\+process}}
+\index{qt\+\_\+route\+\_\+sharing\+\_\+process@{qt\+\_\+route\+\_\+sharing\+\_\+process}!routing\+\_\+table.\+h@{routing\+\_\+table.\+h}}
+\subsubsection[{\texorpdfstring{qt\+\_\+route\+\_\+sharing\+\_\+process(void)}{qt_route_sharing_process(void)}}]{\setlength{\rightskip}{0pt plus 5cm}bool qt\+\_\+route\+\_\+sharing\+\_\+process (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\hypertarget{routing__table_8h_a664041fb6457b05951388d9b3e8e2404}{}\label{routing__table_8h_a664041fb6457b05951388d9b3e8e2404}
+\begin{DoxyReturn}{Returns}
+returns true always.
+\end{DoxyReturn}
+This function periodically shares the routing table of a node to gateway mote. required only for showing the routing table in QT, Not required in the production code. \index{routing\+\_\+table.\+h@{routing\+\_\+table.\+h}!remove\+\_\+nbr@{remove\+\_\+nbr}}
+\index{remove\+\_\+nbr@{remove\+\_\+nbr}!routing\+\_\+table.\+h@{routing\+\_\+table.\+h}}
+\subsubsection[{\texorpdfstring{remove\+\_\+nbr(void $\ast$n)}{remove_nbr(void *n)}}]{\setlength{\rightskip}{0pt plus 5cm}void remove\+\_\+nbr (
+\begin{DoxyParamCaption}
+\item[{void $\ast$}]{n}
+\end{DoxyParamCaption}
+)}\hypertarget{routing__table_8h_ab16f3f594494601b35f805a20fbdf7fc}{}\label{routing__table_8h_ab16f3f594494601b35f805a20fbdf7fc}
+
+\begin{DoxyParams}{Parameters}
+{\em n} & pointer to the neighbor entry which needs to be removed.\\
+\hline
+\end{DoxyParams}
+This function removes the neighbor entry from the after T\+TL. \index{routing\+\_\+table.\+h@{routing\+\_\+table.\+h}!share\+\_\+routing\+\_\+table@{share\+\_\+routing\+\_\+table}}
+\index{share\+\_\+routing\+\_\+table@{share\+\_\+routing\+\_\+table}!routing\+\_\+table.\+h@{routing\+\_\+table.\+h}}
+\subsubsection[{\texorpdfstring{share\+\_\+routing\+\_\+table()}{share_routing_table()}}]{\setlength{\rightskip}{0pt plus 5cm}void share\+\_\+routing\+\_\+table (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{routing__table_8h_a1aef3383e57265b170ddfa3d37733006}{}\label{routing__table_8h_a1aef3383e57265b170ddfa3d37733006}
+This is important function responsible for sharing the routing info to the neighbors, This information is used also T\+TL purposes. When a routing packet is received the T\+TL also reinitialized for the neighbor. 
+
+\subsection{Variable Documentation}
+\index{routing\+\_\+table.\+h@{routing\+\_\+table.\+h}!gateway\+\_\+node@{gateway\+\_\+node}}
+\index{gateway\+\_\+node@{gateway\+\_\+node}!routing\+\_\+table.\+h@{routing\+\_\+table.\+h}}
+\subsubsection[{\texorpdfstring{gateway\+\_\+node}{gateway_node}}]{\setlength{\rightskip}{0pt plus 5cm}const linkaddr\+\_\+t gateway\+\_\+node}\hypertarget{routing__table_8h_a4efe83a17bae46285cb406d55a61da0a}{}\label{routing__table_8h_a4efe83a17bae46285cb406d55a61da0a}
+This is the hard coded gateway address Networks start functioning as soon the as someone receives the packet from gateway address \index{routing\+\_\+table.\+h@{routing\+\_\+table.\+h}!g\+Battery\+Voltage@{g\+Battery\+Voltage}}
+\index{g\+Battery\+Voltage@{g\+Battery\+Voltage}!routing\+\_\+table.\+h@{routing\+\_\+table.\+h}}
+\subsubsection[{\texorpdfstring{g\+Battery\+Voltage}{gBatteryVoltage}}]{\setlength{\rightskip}{0pt plus 5cm}int g\+Battery\+Voltage}\hypertarget{routing__table_8h_af6011e98f1c246278dbd45a301a2b8bc}{}\label{routing__table_8h_af6011e98f1c246278dbd45a301a2b8bc}
+\index{routing\+\_\+table.\+h@{routing\+\_\+table.\+h}!g\+Battery\+Voltage\+\_\+emulated@{g\+Battery\+Voltage\+\_\+emulated}}
+\index{g\+Battery\+Voltage\+\_\+emulated@{g\+Battery\+Voltage\+\_\+emulated}!routing\+\_\+table.\+h@{routing\+\_\+table.\+h}}
+\subsubsection[{\texorpdfstring{g\+Battery\+Voltage\+\_\+emulated}{gBatteryVoltage_emulated}}]{\setlength{\rightskip}{0pt plus 5cm}int g\+Battery\+Voltage\+\_\+emulated}\hypertarget{routing__table_8h_a9b908f6ebb22df37e5c1758276e428a9}{}\label{routing__table_8h_a9b908f6ebb22df37e5c1758276e428a9}
+\index{routing\+\_\+table.\+h@{routing\+\_\+table.\+h}!g\+Broadcast\+\_\+ended@{g\+Broadcast\+\_\+ended}}
+\index{g\+Broadcast\+\_\+ended@{g\+Broadcast\+\_\+ended}!routing\+\_\+table.\+h@{routing\+\_\+table.\+h}}
+\subsubsection[{\texorpdfstring{g\+Broadcast\+\_\+ended}{gBroadcast_ended}}]{\setlength{\rightskip}{0pt plus 5cm}bool g\+Broadcast\+\_\+ended}\hypertarget{routing__table_8h_ae6eb8faf3a079ff3abbad3597098c59f}{}\label{routing__table_8h_ae6eb8faf3a079ff3abbad3597098c59f}
+\index{routing\+\_\+table.\+h@{routing\+\_\+table.\+h}!g\+List\+Empty@{g\+List\+Empty}}
+\index{g\+List\+Empty@{g\+List\+Empty}!routing\+\_\+table.\+h@{routing\+\_\+table.\+h}}
+\subsubsection[{\texorpdfstring{g\+List\+Empty}{gListEmpty}}]{\setlength{\rightskip}{0pt plus 5cm}bool g\+List\+Empty}\hypertarget{routing__table_8h_a7976f264094b388d1204d831c5c3ceb9}{}\label{routing__table_8h_a7976f264094b388d1204d831c5c3ceb9}
+Variable to indicate whether the list is empty or not. \index{routing\+\_\+table.\+h@{routing\+\_\+table.\+h}!i\+\_\+am\+\_\+gateway@{i\+\_\+am\+\_\+gateway}}
+\index{i\+\_\+am\+\_\+gateway@{i\+\_\+am\+\_\+gateway}!routing\+\_\+table.\+h@{routing\+\_\+table.\+h}}
+\subsubsection[{\texorpdfstring{i\+\_\+am\+\_\+gateway}{i_am_gateway}}]{\setlength{\rightskip}{0pt plus 5cm}bool i\+\_\+am\+\_\+gateway}\hypertarget{routing__table_8h_a5a2a5b38778274c2c9c09277cf17fe06}{}\label{routing__table_8h_a5a2a5b38778274c2c9c09277cf17fe06}
+\index{routing\+\_\+table.\+h@{routing\+\_\+table.\+h}!is\+\_\+gateway\+\_\+found@{is\+\_\+gateway\+\_\+found}}
+\index{is\+\_\+gateway\+\_\+found@{is\+\_\+gateway\+\_\+found}!routing\+\_\+table.\+h@{routing\+\_\+table.\+h}}
+\subsubsection[{\texorpdfstring{is\+\_\+gateway\+\_\+found}{is_gateway_found}}]{\setlength{\rightskip}{0pt plus 5cm}bool is\+\_\+gateway\+\_\+found}\hypertarget{routing__table_8h_a3c855edcbe1c99ccba335079058bc515}{}\label{routing__table_8h_a3c855edcbe1c99ccba335079058bc515}
+global variable to indicate whether the node is connected to gateway or not. \index{routing\+\_\+table.\+h@{routing\+\_\+table.\+h}!nearest\+\_\+neighbor@{nearest\+\_\+neighbor}}
+\index{nearest\+\_\+neighbor@{nearest\+\_\+neighbor}!routing\+\_\+table.\+h@{routing\+\_\+table.\+h}}
+\subsubsection[{\texorpdfstring{nearest\+\_\+neighbor}{nearest_neighbor}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf nodes} nearest\+\_\+neighbor}\hypertarget{routing__table_8h_a8e3434535bb688894247ea59c081d87e}{}\label{routing__table_8h_a8e3434535bb688894247ea59c081d87e}
+Stores the address and hop count of the nearest neighbor.
+
+\hyperlink{routing__table_8c}{routing\+\_\+table.\+c}
+
+\begin{DoxyAuthor}{Authors}
+Abhishek Sunkum(\href{mailto:ga83jok@mytum.de}{\tt ga83jok@mytum.\+de}) Pramod Tikare(\href{mailto:ga83baw@mytum.de}{\tt ga83baw@mytum.\+de}) Yadhunandana (\href{mailto:ga83jeb@mytum.de}{\tt ga83jeb@mytum.\+de}) 
+\end{DoxyAuthor}

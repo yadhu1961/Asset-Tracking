@@ -1,0 +1,268 @@
+#include "mainwindow.h"
+#include "ui_mainwindow.h"
+#include <QLineF>
+#include <QPixmap>
+#include <QLabel>
+#include <QHBoxLayout>
+#include <QMessageBox>
+
+extern int x,y;
+
+MainWindow::MainWindow(QWidget *parent) :
+    QMainWindow(parent),
+    ui(new Ui::MainWindow)
+{
+   // setAttribute(Qt::WA_OpaquePaintEvent);
+    ui->setupUi(this);
+    // Get all available COM Ports and store them in a QList.
+//    QList<QextPortInfo> ports = QextSerialEnumerator::getPorts();
+
+//    // Read each element on the list, but
+//    // add only USB ports to the combo box.
+//    for (int i = 0; i < ports.size(); i++) {
+//        if (ports.at(i).portName.contains("USB")){
+//            ui->comboBox_Interface->addItem(ports.at(i).portName.toLocal8Bit().constData());
+//        }
+//    }
+    // Show a hint if no USB ports were found.
+//    if (ui->comboBox_Interface->count() == 0){
+//        ui->textEdit_Status->insertPlainText("No USB ports available.\nConnect a USB device and try again.");
+//    }
+}
+
+MainWindow::~MainWindow()
+{
+    delete ui;
+}
+
+void MainWindow::changeEvent(QEvent *e)
+{
+    QMainWindow::changeEvent(e);
+    switch (e->type()) {
+    case QEvent::LanguageChange:
+        ui->retranslateUi(this);
+        break;
+    default:
+        break;
+    }
+}
+
+void MainWindow::on_pushButton_open_clicked()
+{
+    port.setQueryMode(QextSerialPort::EventDriven);
+    port.setPortName("COM6");
+    port.setBaudRate(BAUD115200);
+    port.setFlowControl(FLOW_OFF);
+    port.setParity(PAR_NONE);
+    port.setDataBits(DATA_8);
+    port.setStopBits(STOP_1);
+    port.open(QIODevice::ReadWrite);
+  //  qDebug() << "Line 61";
+    if (!port.isOpen())
+    {
+//        error.setText("Unable to open port!");
+//        error.show();
+        return;
+    }
+ //   qDebug() << "Line 68";
+    QObject::connect(&port, SIGNAL(readyRead()), this, SLOT(receive()));
+
+    ui->pushButton_close->setEnabled(true);
+    ui->pushButton_open->setEnabled(false);
+    //ui->comboBox_Interface->setEnabled(false);
+}
+
+void MainWindow::on_pushButton_close_clicked()
+{
+    if (port.isOpen())port.close();
+    ui->pushButton_close->setEnabled(false);
+    ui->pushButton_open->setEnabled(true);
+    //ui->comboBox_Interface->setEnabled(true);
+}
+
+void MainWindow::receive()
+{
+
+//    static QString str;
+//        char ch;
+//        while (port.getChar(&ch))
+//        {
+//            str.append(ch);
+//            if (ch == '\n')     // End of line, start decoding
+//            {
+//                str.remove("\n", Qt::CaseSensitive);
+//                str.remove("\r", Qt::CaseSensitive);
+//                //ui->textEdit_Status->append(str);
+
+//                //qDebug() << "Str value: " << str;
+//                if (str.contains("Asset"))
+//                {
+//                   qDebug() << "Line 100";
+//                    str.remove("Asset,", Qt::CaseSensitive);
+//                    list = str.split(QRegExp("\\W+"));
+
+//                    //qDebug() << "Str value: " << str;
+//                    if(!list.isEmpty()){
+//                        qDebug() << "List size " << list.size();
+//                        for (int i=0; i < list.size(); i++){
+//                            qDebug() << list.at(i);
+//                            if (lk_list.contains(list.at(i), Qt::CaseInsensitive))
+//                            {
+//                                qDebug() << lk_list.indexOf(list.at(i));
+//                                my_points << polyPoints.at(lk_list.indexOf(list.at(i)));
+//                               // qDebug() << my_points.at(lk_list.indexOf(list.at(i)));
+//                            }
+//                        }
+
+//                        QPainter painter(this);
+
+//                        // make a pen
+
+//                        QPen my_pen_blue;
+
+//                        my_pen_blue.setWidth(4);
+
+//                        my_pen_blue.setColor(Qt::blue);
+
+//                        painter.setPen(my_pen_blue);
+//                           //draw 6 nodes
+
+//                        QPainterPath path;
+//                        path.moveTo(my_points.at(1));
+//                        for(int i = 2; i < my_points.size(); i++)
+//                            path.lineTo(my_points.at(i));
+
+//                        painter.drawPath(path);
+//                    }
+
+
+//                //    qDebug() << "Var value " << QString::number(value);
+//               //     ui->lcdNumber_light->display(value);
+//              //      ui->progressBar_light->setValue((int)value);
+//                }
+
+//                this->repaint();    // Update content of window immediately
+//                str.clear();
+//            }
+//        }
+}
+
+void MainWindow::paintEvent(QPaintEvent *e)
+{
+    QPainter painter(this);
+    int radius = 25;
+    QVector<QPointF> polyPoints, my_points ;
+    QStringList lk_list, list;
+
+    polyPoints << QPointF(::x/2,50);
+    polyPoints << QPointF(::x/4*3,::y/4);
+    polyPoints << QPointF(::x/2,::y -50);
+    polyPoints << QPointF(::x/4,::y/4);
+    polyPoints << QPointF(::x/4*3,::y/4*3);
+    polyPoints << QPointF(::x/4,::y/4 * 3);
+
+//    QLabel *label = new QLabel(this);
+
+
+//    label->setFrameStyle(QFrame::Panel | QFrame::Sunken);
+//    label->setText("Asset 1");
+//    label->setAlignment(Qt::AlignBottom | Qt::AlignRight);
+//    //Here is how to change position:
+//    label->setGeometry(10,10,30,80);
+
+    QString myString;
+    //QStringList list,;
+
+    //myString.sprintf("%s", "0123,4567,2345,8901,1234");
+    //list = myString.split(QRegExp("\\W+"));
+
+
+    lk_list << "1234" << "5678" << "0123" << "4567" << "8901" << "2345";
+
+
+//    for (int i=0; i < list.size(); i++){
+//        qDebug() << list.at(i);
+//        if (lk_list.contains(list.at(i), Qt::CaseInsensitive))
+//        {
+//            qDebug() << lk_list.indexOf(list.at(i));
+//            my_points << polyPoints.at(lk_list.indexOf(list.at(i)));
+//           // qDebug() << my_points.at(lk_list.indexOf(list.at(i)));
+//        }
+//    }
+
+    //qDebug() << "exited";
+
+
+    // make a pen
+    QPen my_pen_red;
+    QPen my_pen_blue;
+    my_pen_red.setWidth(4);
+    my_pen_blue.setWidth(4);
+    my_pen_red.setColor(Qt::red);
+    my_pen_blue.setColor(Qt::blue);
+
+    painter.setPen(my_pen_red);
+   // painter.drawLine(polyPoints.at(0), polyPoints.at(1));
+    foreach(QPointF point, polyPoints)
+        painter.drawEllipse( point, radius, radius );
+
+    static QString str;
+        char ch;
+        while (port.getChar(&ch))
+        {
+            str.append(ch);
+            if (ch == '\n')     // End of line, start decoding
+            {
+                str.remove("\n", Qt::CaseSensitive);
+                str.remove("\r", Qt::CaseSensitive);
+                //ui->textEdit_Status->append(str);
+
+                //qDebug() << "Str value: " << str;
+                if (str.contains("Asset"))
+                {
+                    str.remove("Asset,", Qt::CaseSensitive);
+                    list = str.split(QRegExp("\\W+"));
+
+                    //qDebug() << "Str value: " << str;
+                    if(!list.isEmpty()){
+                        //qDebug() << "List size " << list.size();
+                        for (int i=0; i < list.size(); i++){
+                          //  qDebug() << list.at(i);
+                            if (lk_list.contains(list.at(i), Qt::CaseInsensitive))
+                            {
+                             //   qDebug() << lk_list.indexOf(list.at(i));
+                                my_points << polyPoints.at(lk_list.indexOf(list.at(i)));
+                             //   qDebug() << polyPoints.at(lk_list.indexOf(list.at(i)));
+                            }
+                        }
+                        //qDebug() << "size before" << my_points.size();
+                     //   for(int j= 0; j < my_points.size(); j++)
+                        //    qDebug() << my_points.at(j);
+
+//                        QPainter painter(this);
+
+//                        // make a pen
+                        QPen my_pen_blue;
+                        my_pen_blue.setWidth(4);
+                        my_pen_blue.setColor(Qt::blue);
+                        painter.setPen(my_pen_blue);
+                        for(int k = 0; k < my_points.size() - 1; k++)
+                            painter.drawLine(my_points.at(k), my_points.at(k+1));
+
+
+                    }
+                }
+              //  this->update();
+              //  this->repaint();    // Update content of window immediately
+                str.clear();
+                list.empty();
+                lk_list.empty();
+                my_points.clear();
+            }
+        }
+       // MainWindow::paintEvent(e);
+}
+
+//    foreach(QPointF i_point, polyPoints)
+//        foreach(QPointF j_point, polyPoints)
+//            painter.drawLine(i_point, j_point);

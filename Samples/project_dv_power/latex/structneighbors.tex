@@ -1,0 +1,44 @@
+\hypertarget{structneighbors}{}\section{neighbors Struct Reference}
+\label{structneighbors}\index{neighbors@{neighbors}}
+
+
+{\ttfamily \#include $<$routing\+\_\+table.\+h$>$}
+
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structneighbors}{neighbors} $\ast$ \hyperlink{structneighbors_ac2168f200163eaa32fb01444a94ab16d}{next}
+\item 
+linkaddr\+\_\+t \hyperlink{structneighbors_af4a9eba693293b926d00c4957734a679}{nbr\+\_\+addr}
+\item 
+uint16\+\_\+t \hyperlink{structneighbors_afdef5e54f1191f6337eb01f5034a2ef8}{hop\+\_\+count}
+\item 
+struct ctimer \hyperlink{structneighbors_afe56765f4d5b05b9b6072923540a459e}{node\+\_\+timer}
+\end{DoxyCompactItemize}
+
+
+\subsection{Member Data Documentation}
+\index{neighbors@{neighbors}!hop\+\_\+count@{hop\+\_\+count}}
+\index{hop\+\_\+count@{hop\+\_\+count}!neighbors@{neighbors}}
+\subsubsection[{\texorpdfstring{hop\+\_\+count}{hop_count}}]{\setlength{\rightskip}{0pt plus 5cm}neighbors\+::hop\+\_\+count}\hypertarget{structneighbors_afdef5e54f1191f6337eb01f5034a2ef8}{}\label{structneighbors_afdef5e54f1191f6337eb01f5034a2ef8}
+number of hops to gateway via that neighbor.~\newline
+ \index{neighbors@{neighbors}!nbr\+\_\+addr@{nbr\+\_\+addr}}
+\index{nbr\+\_\+addr@{nbr\+\_\+addr}!neighbors@{neighbors}}
+\subsubsection[{\texorpdfstring{nbr\+\_\+addr}{nbr_addr}}]{\setlength{\rightskip}{0pt plus 5cm}neighbors\+::nbr\+\_\+addr}\hypertarget{structneighbors_af4a9eba693293b926d00c4957734a679}{}\label{structneighbors_af4a9eba693293b926d00c4957734a679}
+neighbor address ~\newline
+ \index{neighbors@{neighbors}!next@{next}}
+\index{next@{next}!neighbors@{neighbors}}
+\subsubsection[{\texorpdfstring{next}{next}}]{\setlength{\rightskip}{0pt plus 5cm}neighbors\+::next}\hypertarget{structneighbors_ac2168f200163eaa32fb01444a94ab16d}{}\label{structneighbors_ac2168f200163eaa32fb01444a94ab16d}
+struct element which gets added to routing linked list. ~\newline
+ which has following elements ~\newline
+
+
+pointer to the next element in the list. ~\newline
+ \index{neighbors@{neighbors}!node\+\_\+timer@{node\+\_\+timer}}
+\index{node\+\_\+timer@{node\+\_\+timer}!neighbors@{neighbors}}
+\subsubsection[{\texorpdfstring{node\+\_\+timer}{node_timer}}]{\setlength{\rightskip}{0pt plus 5cm}neighbors\+::node\+\_\+timer}\hypertarget{structneighbors_afe56765f4d5b05b9b6072923540a459e}{}\label{structneighbors_afe56765f4d5b05b9b6072923540a459e}
+Time to live timer for the neighbor. 
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{routing__table_8h}{routing\+\_\+table.\+h}\end{DoxyCompactItemize}

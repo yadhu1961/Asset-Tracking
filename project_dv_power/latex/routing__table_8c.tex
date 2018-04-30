@@ -1,0 +1,175 @@
+\hypertarget{routing__table_8c}{}\section{routing\+\_\+table.\+c File Reference}
+\label{routing__table_8c}\index{routing\+\_\+table.\+c@{routing\+\_\+table.\+c}}
+{\ttfamily \#include \char`\"{}routing\+\_\+table.\+h\char`\"{}}\\*
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{routing__table_8c_adc1d8e0dab683e044ca1e226c132bea2}{L\+I\+ST} (nbr\+\_\+list)
+\item 
+\hyperlink{routing__table_8c_ace37ec8fdcea1bad899c43a97c7fea68}{M\+E\+MB} (neighbor\+\_\+mem, \hyperlink{structneighbors}{neighbors}, \hyperlink{routing__table_8h_a2b1d39159e4114f433745f15a201c93c}{M\+A\+X\+\_\+\+N\+E\+I\+G\+H\+B\+O\+RS})
+\item 
+bool \hyperlink{routing__table_8c_a65ff8aa113f859e25bf3386976ed52b3}{is\+\_\+duplicate\+\_\+entry} (const linkaddr\+\_\+t $\ast$address, uint8\+\_\+t cost)
+\item 
+bool \hyperlink{routing__table_8c_a0fd1c334f3a70cc66347ecd64fb2683e}{estimate\+\_\+short\+\_\+path} ()
+\item 
+void \hyperlink{routing__table_8c_ac7581d87be7686a59336e372238a91d2}{init\+\_\+routing\+\_\+table} ()
+\item 
+bool \hyperlink{routing__table_8c_ade054776c0fe601c327049ae3c4244a5}{add\+\_\+routing\+\_\+entry} (const linkaddr\+\_\+t $\ast$address, uint8\+\_\+t cost)
+\item 
+void \hyperlink{routing__table_8c_adea274117dc2914712b2c857902f1d95}{print\+\_\+routing\+\_\+table} ()
+\item 
+void \hyperlink{routing__table_8c_a20ca2051b7a49bbb63db9157f3374ddd}{check\+\_\+gateway} ()
+\item 
+void \hyperlink{routing__table_8c_ab16f3f594494601b35f805a20fbdf7fc}{remove\+\_\+nbr} (void $\ast$n)
+\item 
+void \hyperlink{routing__table_8c_a35b91b9e40b2326874c3747b86e8c802}{share\+\_\+routing\+\_\+table} (void)
+\item 
+bool \hyperlink{routing__table_8c_a664041fb6457b05951388d9b3e8e2404}{qt\+\_\+route\+\_\+sharing\+\_\+process} (void)
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{structnodes}{nodes} \hyperlink{routing__table_8c_a8e3434535bb688894247ea59c081d87e}{nearest\+\_\+neighbor}
+\item 
+bool \hyperlink{routing__table_8c_a3c855edcbe1c99ccba335079058bc515}{is\+\_\+gateway\+\_\+found} = false
+\item 
+const linkaddr\+\_\+t \hyperlink{routing__table_8c_a4efe83a17bae46285cb406d55a61da0a}{gateway\+\_\+node} = \{\{0x90,0x3d\}\}
+\item 
+bool \hyperlink{routing__table_8c_a5a2a5b38778274c2c9c09277cf17fe06}{i\+\_\+am\+\_\+gateway} =false
+\item 
+bool \hyperlink{routing__table_8c_a7976f264094b388d1204d831c5c3ceb9}{g\+List\+Empty} =true
+\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\index{routing\+\_\+table.\+c@{routing\+\_\+table.\+c}!add\+\_\+routing\+\_\+entry@{add\+\_\+routing\+\_\+entry}}
+\index{add\+\_\+routing\+\_\+entry@{add\+\_\+routing\+\_\+entry}!routing\+\_\+table.\+c@{routing\+\_\+table.\+c}}
+\subsubsection[{\texorpdfstring{add\+\_\+routing\+\_\+entry(const linkaddr\+\_\+t $\ast$address, uint8\+\_\+t cost)}{add_routing_entry(const linkaddr_t *address, uint8_t cost)}}]{\setlength{\rightskip}{0pt plus 5cm}bool add\+\_\+routing\+\_\+entry (
+\begin{DoxyParamCaption}
+\item[{const linkaddr\+\_\+t $\ast$}]{address, }
+\item[{uint8\+\_\+t}]{cost}
+\end{DoxyParamCaption}
+)}\hypertarget{routing__table_8c_ade054776c0fe601c327049ae3c4244a5}{}\label{routing__table_8c_ade054776c0fe601c327049ae3c4244a5}
+
+\begin{DoxyParams}{Parameters}
+{\em address} & address of the neighbor \\
+\hline
+{\em cost} & cost to the neighbor. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+whether the entry is added to the table or not.
+\end{DoxyReturn}
+This function is responsible for adding the neighbor entries to the routing table. contains the logic to determine whether entry is duplicate or not. initializes the time to live timer/reinitializes if it already exists. \index{routing\+\_\+table.\+c@{routing\+\_\+table.\+c}!check\+\_\+gateway@{check\+\_\+gateway}}
+\index{check\+\_\+gateway@{check\+\_\+gateway}!routing\+\_\+table.\+c@{routing\+\_\+table.\+c}}
+\subsubsection[{\texorpdfstring{check\+\_\+gateway()}{check_gateway()}}]{\setlength{\rightskip}{0pt plus 5cm}void check\+\_\+gateway (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{routing__table_8c_a20ca2051b7a49bbb63db9157f3374ddd}{}\label{routing__table_8c_a20ca2051b7a49bbb63db9157f3374ddd}
+Checks whether the packet received is, from gateway or not. \index{routing\+\_\+table.\+c@{routing\+\_\+table.\+c}!estimate\+\_\+short\+\_\+path@{estimate\+\_\+short\+\_\+path}}
+\index{estimate\+\_\+short\+\_\+path@{estimate\+\_\+short\+\_\+path}!routing\+\_\+table.\+c@{routing\+\_\+table.\+c}}
+\subsubsection[{\texorpdfstring{estimate\+\_\+short\+\_\+path()}{estimate_short_path()}}]{\setlength{\rightskip}{0pt plus 5cm}bool estimate\+\_\+short\+\_\+path (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{routing__table_8c_a0fd1c334f3a70cc66347ecd64fb2683e}{}\label{routing__table_8c_a0fd1c334f3a70cc66347ecd64fb2683e}
+\begin{DoxyReturn}{Returns}
+whether the shortest path found or not.
+\end{DoxyReturn}
+Estimates the shortest from the node to gateway. called before sharing the routing table. \index{routing\+\_\+table.\+c@{routing\+\_\+table.\+c}!init\+\_\+routing\+\_\+table@{init\+\_\+routing\+\_\+table}}
+\index{init\+\_\+routing\+\_\+table@{init\+\_\+routing\+\_\+table}!routing\+\_\+table.\+c@{routing\+\_\+table.\+c}}
+\subsubsection[{\texorpdfstring{init\+\_\+routing\+\_\+table()}{init_routing_table()}}]{\setlength{\rightskip}{0pt plus 5cm}void init\+\_\+routing\+\_\+table (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{routing__table_8c_ac7581d87be7686a59336e372238a91d2}{}\label{routing__table_8c_ac7581d87be7686a59336e372238a91d2}
+This is dummy function as of now If necessary some logic can be added here, just after allocating the routing table. \index{routing\+\_\+table.\+c@{routing\+\_\+table.\+c}!is\+\_\+duplicate\+\_\+entry@{is\+\_\+duplicate\+\_\+entry}}
+\index{is\+\_\+duplicate\+\_\+entry@{is\+\_\+duplicate\+\_\+entry}!routing\+\_\+table.\+c@{routing\+\_\+table.\+c}}
+\subsubsection[{\texorpdfstring{is\+\_\+duplicate\+\_\+entry(const linkaddr\+\_\+t $\ast$address, uint8\+\_\+t cost)}{is_duplicate_entry(const linkaddr_t *address, uint8_t cost)}}]{\setlength{\rightskip}{0pt plus 5cm}bool is\+\_\+duplicate\+\_\+entry (
+\begin{DoxyParamCaption}
+\item[{const linkaddr\+\_\+t $\ast$}]{address, }
+\item[{uint8\+\_\+t}]{cost}
+\end{DoxyParamCaption}
+)}\hypertarget{routing__table_8c_a65ff8aa113f859e25bf3386976ed52b3}{}\label{routing__table_8c_a65ff8aa113f859e25bf3386976ed52b3}
+
+\begin{DoxyParams}{Parameters}
+{\em address} & address of the node \\
+\hline
+{\em cost} & cost to the node. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+returns true if duplicate is found else false.
+\end{DoxyReturn}
+This function is called before adding the entry into the routing table. To determine whether address exists in the table or not. \index{routing\+\_\+table.\+c@{routing\+\_\+table.\+c}!L\+I\+ST@{L\+I\+ST}}
+\index{L\+I\+ST@{L\+I\+ST}!routing\+\_\+table.\+c@{routing\+\_\+table.\+c}}
+\subsubsection[{\texorpdfstring{L\+I\+S\+T(nbr\+\_\+list)}{LIST(nbr_list)}}]{\setlength{\rightskip}{0pt plus 5cm}L\+I\+ST (
+\begin{DoxyParamCaption}
+\item[{nbr\+\_\+list}]{}
+\end{DoxyParamCaption}
+)}\hypertarget{routing__table_8c_adc1d8e0dab683e044ca1e226c132bea2}{}\label{routing__table_8c_adc1d8e0dab683e044ca1e226c132bea2}
+Creating neighbors and routing table here, Name of the list is nbr\+\_\+list. \index{routing\+\_\+table.\+c@{routing\+\_\+table.\+c}!M\+E\+MB@{M\+E\+MB}}
+\index{M\+E\+MB@{M\+E\+MB}!routing\+\_\+table.\+c@{routing\+\_\+table.\+c}}
+\subsubsection[{\texorpdfstring{M\+E\+M\+B(neighbor\+\_\+mem, neighbors, M\+A\+X\+\_\+\+N\+E\+I\+G\+H\+B\+O\+R\+S)}{MEMB(neighbor_mem, neighbors, MAX_NEIGHBORS)}}]{\setlength{\rightskip}{0pt plus 5cm}M\+E\+MB (
+\begin{DoxyParamCaption}
+\item[{neighbor\+\_\+mem}]{, }
+\item[{{\bf neighbors}}]{, }
+\item[{{\bf M\+A\+X\+\_\+\+N\+E\+I\+G\+H\+B\+O\+RS}}]{}
+\end{DoxyParamCaption}
+)}\hypertarget{routing__table_8c_ace37ec8fdcea1bad899c43a97c7fea68}{}\label{routing__table_8c_ace37ec8fdcea1bad899c43a97c7fea68}
+Defining the maximum size of the linked list and its pointer. \index{routing\+\_\+table.\+c@{routing\+\_\+table.\+c}!print\+\_\+routing\+\_\+table@{print\+\_\+routing\+\_\+table}}
+\index{print\+\_\+routing\+\_\+table@{print\+\_\+routing\+\_\+table}!routing\+\_\+table.\+c@{routing\+\_\+table.\+c}}
+\subsubsection[{\texorpdfstring{print\+\_\+routing\+\_\+table()}{print_routing_table()}}]{\setlength{\rightskip}{0pt plus 5cm}void print\+\_\+routing\+\_\+table (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{routing__table_8c_adea274117dc2914712b2c857902f1d95}{}\label{routing__table_8c_adea274117dc2914712b2c857902f1d95}
+This function is used only for debugging purpose. prints the current routing table of the node. \index{routing\+\_\+table.\+c@{routing\+\_\+table.\+c}!qt\+\_\+route\+\_\+sharing\+\_\+process@{qt\+\_\+route\+\_\+sharing\+\_\+process}}
+\index{qt\+\_\+route\+\_\+sharing\+\_\+process@{qt\+\_\+route\+\_\+sharing\+\_\+process}!routing\+\_\+table.\+c@{routing\+\_\+table.\+c}}
+\subsubsection[{\texorpdfstring{qt\+\_\+route\+\_\+sharing\+\_\+process(void)}{qt_route_sharing_process(void)}}]{\setlength{\rightskip}{0pt plus 5cm}bool qt\+\_\+route\+\_\+sharing\+\_\+process (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\hypertarget{routing__table_8c_a664041fb6457b05951388d9b3e8e2404}{}\label{routing__table_8c_a664041fb6457b05951388d9b3e8e2404}
+\begin{DoxyReturn}{Returns}
+returns true always.
+\end{DoxyReturn}
+This function periodically shares the routing table of a node to gateway mote. required only for showing the routing table in QT, Not required in the production code. \index{routing\+\_\+table.\+c@{routing\+\_\+table.\+c}!remove\+\_\+nbr@{remove\+\_\+nbr}}
+\index{remove\+\_\+nbr@{remove\+\_\+nbr}!routing\+\_\+table.\+c@{routing\+\_\+table.\+c}}
+\subsubsection[{\texorpdfstring{remove\+\_\+nbr(void $\ast$n)}{remove_nbr(void *n)}}]{\setlength{\rightskip}{0pt plus 5cm}void remove\+\_\+nbr (
+\begin{DoxyParamCaption}
+\item[{void $\ast$}]{n}
+\end{DoxyParamCaption}
+)}\hypertarget{routing__table_8c_ab16f3f594494601b35f805a20fbdf7fc}{}\label{routing__table_8c_ab16f3f594494601b35f805a20fbdf7fc}
+
+\begin{DoxyParams}{Parameters}
+{\em n} & pointer to the neighbor entry which needs to be removed.\\
+\hline
+\end{DoxyParams}
+This function removes the neighbor entry from the after T\+TL. \index{routing\+\_\+table.\+c@{routing\+\_\+table.\+c}!share\+\_\+routing\+\_\+table@{share\+\_\+routing\+\_\+table}}
+\index{share\+\_\+routing\+\_\+table@{share\+\_\+routing\+\_\+table}!routing\+\_\+table.\+c@{routing\+\_\+table.\+c}}
+\subsubsection[{\texorpdfstring{share\+\_\+routing\+\_\+table(void)}{share_routing_table(void)}}]{\setlength{\rightskip}{0pt plus 5cm}void share\+\_\+routing\+\_\+table (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{routing__table_8c_a35b91b9e40b2326874c3747b86e8c802}{}\label{routing__table_8c_a35b91b9e40b2326874c3747b86e8c802}
+This is important function responsible for sharing the routing info to the neighbors, This information is used also T\+TL purposes. When a routing packet is received the T\+TL also reinitialized for the neighbor. 
+
+\subsection{Variable Documentation}
+\index{routing\+\_\+table.\+c@{routing\+\_\+table.\+c}!gateway\+\_\+node@{gateway\+\_\+node}}
+\index{gateway\+\_\+node@{gateway\+\_\+node}!routing\+\_\+table.\+c@{routing\+\_\+table.\+c}}
+\subsubsection[{\texorpdfstring{gateway\+\_\+node}{gateway_node}}]{\setlength{\rightskip}{0pt plus 5cm}const linkaddr\+\_\+t gateway\+\_\+node = \{\{0x90,0x3d\}\}}\hypertarget{routing__table_8c_a4efe83a17bae46285cb406d55a61da0a}{}\label{routing__table_8c_a4efe83a17bae46285cb406d55a61da0a}
+This is the hard coded gateway address Networks start functioning as soon the as someone receives the packet from gateway address \index{routing\+\_\+table.\+c@{routing\+\_\+table.\+c}!g\+List\+Empty@{g\+List\+Empty}}
+\index{g\+List\+Empty@{g\+List\+Empty}!routing\+\_\+table.\+c@{routing\+\_\+table.\+c}}
+\subsubsection[{\texorpdfstring{g\+List\+Empty}{gListEmpty}}]{\setlength{\rightskip}{0pt plus 5cm}bool g\+List\+Empty =true}\hypertarget{routing__table_8c_a7976f264094b388d1204d831c5c3ceb9}{}\label{routing__table_8c_a7976f264094b388d1204d831c5c3ceb9}
+Variable to indicate whether the list is empty or not. \index{routing\+\_\+table.\+c@{routing\+\_\+table.\+c}!i\+\_\+am\+\_\+gateway@{i\+\_\+am\+\_\+gateway}}
+\index{i\+\_\+am\+\_\+gateway@{i\+\_\+am\+\_\+gateway}!routing\+\_\+table.\+c@{routing\+\_\+table.\+c}}
+\subsubsection[{\texorpdfstring{i\+\_\+am\+\_\+gateway}{i_am_gateway}}]{\setlength{\rightskip}{0pt plus 5cm}bool i\+\_\+am\+\_\+gateway =false}\hypertarget{routing__table_8c_a5a2a5b38778274c2c9c09277cf17fe06}{}\label{routing__table_8c_a5a2a5b38778274c2c9c09277cf17fe06}
+\index{routing\+\_\+table.\+c@{routing\+\_\+table.\+c}!is\+\_\+gateway\+\_\+found@{is\+\_\+gateway\+\_\+found}}
+\index{is\+\_\+gateway\+\_\+found@{is\+\_\+gateway\+\_\+found}!routing\+\_\+table.\+c@{routing\+\_\+table.\+c}}
+\subsubsection[{\texorpdfstring{is\+\_\+gateway\+\_\+found}{is_gateway_found}}]{\setlength{\rightskip}{0pt plus 5cm}bool is\+\_\+gateway\+\_\+found = false}\hypertarget{routing__table_8c_a3c855edcbe1c99ccba335079058bc515}{}\label{routing__table_8c_a3c855edcbe1c99ccba335079058bc515}
+global variable to indicate whether the node is connected to gateway or not. \index{routing\+\_\+table.\+c@{routing\+\_\+table.\+c}!nearest\+\_\+neighbor@{nearest\+\_\+neighbor}}
+\index{nearest\+\_\+neighbor@{nearest\+\_\+neighbor}!routing\+\_\+table.\+c@{routing\+\_\+table.\+c}}
+\subsubsection[{\texorpdfstring{nearest\+\_\+neighbor}{nearest_neighbor}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf nodes} nearest\+\_\+neighbor}\hypertarget{routing__table_8c_a8e3434535bb688894247ea59c081d87e}{}\label{routing__table_8c_a8e3434535bb688894247ea59c081d87e}
+Stores the address and hop count of the nearest neighbor. 

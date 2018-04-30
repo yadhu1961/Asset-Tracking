@@ -1,0 +1,20 @@
+/**
+ * @mainpage
+ *  Project ASTRA – Asset Tracking for hospitals
+ *
+ * ===
+ * @section s0 Introduction
+ *		Introduction to the project.
+ *	To track mobile medical equipments in the hospitals
+ *	Increased patient volume, increased health care devices which are prone to
+ *	misplacements by humans.
+ *  Misplacements, time to track, central inventory management(out of date, over
+ *	ordering, needs maintenance or disposal).
+ *
+ * ===
+ * @section s1 First section
+ *		▪ The goal is to implement a homogenous, scalable real time asset tracking system
+ *	for hospitals by constructing an efficient, energy aware Routing algorithm.
+ */
+
+
